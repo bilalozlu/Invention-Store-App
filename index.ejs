@@ -61,14 +61,14 @@
                         <% for(var i=0; i<users.length; i++) {%>
                         <tr>
                             <td id='tdName'>
-                                <p><%- users[i].userName %></p>
+                                <p><%= users[i].userName %></p>
                             </td>
-                            <form action="/users/<%- users[i]._id %>" method="GET">
+                            <form action="/users/<%= users[i]._id %>" method="GET">
                             <td id='tdOp'>
                                 <button id = 'buton' action>Login <i class="fa fa-sign-in"></i></button>
                             </td>
                             </form>
-                            <form action="/users/<%- users[i]._id %>?_method=DELETE" method="POST">
+                            <form action="/users/<%= users[i]._id %>?_method=DELETE" method="POST">
                             <td id='tdOp'>
                                 <button id = 'buton' action>Delete <i class="fa fa-trash"></i></button>
                             </td>
@@ -87,18 +87,18 @@
 
         <% if ( page == 'inventions') {%>
             <div>
-                <button action><%- userInfo.userName %></button>
+                <button action><%= userInfo.userName %></button>
             <ul>
                 <% for(var i=0; i<userInventions.length; i++) {
                     %>
                     <li>
-                    <button action><%- userInventions[i].productName %></button>
+                    <button action><%= userInventions[i].productName %></button>
 
-                    <button action><%- userInventions[i].user_id == userInfo._id %></button>
+                    <button action><%= userInventions[i].user_id == userInfo._id %></button>
 
                         <% if (userInventions[i].user_id == userInfo._id) { %>
 
-                        <form action="/inventions/<%-userInfo._id%>/drop/<%- userInventions[i]._id %>?_method=PUT" method="POST">
+                        <form action="/inventions/<%=userInfo._id%>/drop/<%= userInventions[i]._id %>?_method=PUT" method="POST">
                             <button action>X</button>
                         </form>
 
@@ -108,11 +108,11 @@
                                 if(userInventions[i].rates[j].rater_id == userInfo._id) {
                                     oldRate = userInventions[i].rates[j].rate;
                                     %>
-                                    <button action> <%- oldRate %></button>
+                                    <button action> <%= oldRate %></button>
                                      <%
                                 }
                             }%>
-                            <form action="/inventions/rate/<%-userInfo._id%>/<%- userInventions[i].user_id %>/<%- userInventions[i]._id %>/<%-oldRate%>?_method=PUT" method="POST">
+                            <form action="/inventions/rate/<%=userInfo._id%>/<%= userInventions[i].user_id %>/<%= userInventions[i]._id %>/<%=oldRate%>?_method=PUT" method="POST">
                                 <input type="number" placeholder="number" name="newRate">
                                 <button action>Rate</button>
                             </form>
@@ -120,7 +120,7 @@
                     </li>
                 <% } %>
             </ul>
-            <form action="/inventions/exhibit/<%-userInfo._id%>/<%-userInfo.userName%>" method="POST">
+            <form action="/inventions/exhibit/<%=userInfo._id%>/<%=userInfo.userName%>" method="POST">
                 <input type="text" placeholder="productName" name="productName">
                 <input type="text" placeholder="photoURL" name="photoURL">
                 <input type="text" placeholder="materialsUsed" name="materialsUsed">
