@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Bilal's Invention Store</title>
+    </head>
+    <body>
+        <div>
+            <ul>
+                <% for(var i=0; i<inventions.length; i++) {%>
+                  <li>
+                        <button action><%= inventions[i].productName %></button>
+                  </li>
+                <% } %>
+            </ul>
+        </div>
+    </body>

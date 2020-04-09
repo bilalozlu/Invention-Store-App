@@ -1,0 +1,134 @@
+<style>
+    html, body {
+        background-image: url('https://user.ceng.metu.edu.tr/~e1942614/files/Trees.jpg');
+    }
+    #body1 {
+        width: 100%;
+        height: : 80%;
+        text-align: center;
+    }
+    #headText {
+        color: #404040;
+    }
+    #userArea {
+        display: inline-block;
+        background-color: rgba(40,120,160,0.5);
+        border: 10px solid Transparent;
+    }
+    #userList {
+        display: inline-block;
+        background-color: #ffffff;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+    }
+    tr:nth-child(even) {
+        background-color: #e0e0e0;
+    }
+    #tdName {
+        padding: 8px;
+        min-width: 180;
+    }
+    #tdOp {
+        padding: 8px;
+        min-width: 30;
+    }
+    #buton {
+        background-color: Transparent;
+        background-repeat:no-repeat;
+        border: none;
+        cursor:pointer;
+    }
+    .fa-sign-in {
+        color:#2080a0;
+    }
+    .fa-trash {
+        color: #f04020;
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<html>
+    <head>
+        <title>Bilal's Invention Store</title>
+    </head>
+    <body>
+        <% if ( page == 'users') {%>
+            <div id = 'body1'>
+                <h1 id = 'headText'>Welcome to Invention Store</h1>
+                <div id = 'userArea'>
+                    <table id = 'userList'>
+                        <% for(var i=0; i<users.length; i++) {%>
+                        <tr>
+                            <td id='tdName'>
+                                <p><%= users[i].userName %></p>
+                            </td>
+                            <form action="/users/<%= users[i]._id %>" method="GET">
+                            <td id='tdOp'>
+                                <button id = 'buton' action>Login <i class="fa fa-sign-in"></i></button>
+                            </td>
+                            </form>
+                            <form action="/users/<%= users[i]._id %>?_method=DELETE" method="POST">
+                            <td id='tdOp'>
+                                <button id = 'buton' action>Delete <i class="fa fa-trash"></i></button>
+                            </td>
+                            </form>
+                        </tr>
+                        <% } %>
+                    </table>
+                    <form action="/users" method="POST">
+                        <p> Add new user </p>
+                        <input type="text" placeholder="Enter username" name="userName">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        <%}%>
+
+        <% if ( page == 'inventions') {%>
+            <div>
+                <button action><%= userInfo.userName %></button>
+            <ul>
+                <% for(var i=0; i<userInventions.length; i++) {
+                    %>
+                    <li>
+                    <button action><%= userInventions[i].productName %></button>
+
+                    <button action><%= userInventions[i].user_id == userInfo._id %></button>
+
+                        <% if (userInventions[i].user_id == userInfo._id) { %>
+
+                        <form action="/inventions/<%=userInfo._id%>/drop/<%= userInventions[i]._id %>?_method=PUT" method="POST">
+                            <button action>X</button>
+                        </form>
+
+                        <%} else {
+                            var oldRate = 0;
+                            for (var j=0; j<userInventions[i].rates.length; j++) {
+                                if(userInventions[i].rates[j].rater_id == userInfo._id) {
+                                    oldRate = userInventions[i].rates[j].rate;
+                                    %>
+                                    <button action> <%= oldRate %></button>
+                                     <%
+                                }
+                            }%>
+                            <form action="/inventions/rate/<%=userInfo._id%>/<%= userInventions[i].user_id %>/<%= userInventions[i]._id %>/<%=oldRate%>?_method=PUT" method="POST">
+                                <input type="number" placeholder="number" name="newRate">
+                                <button action>Rate</button>
+                            </form>
+                        <%}%>
+                    </li>
+                <% } %>
+            </ul>
+            <form action="/inventions/exhibit/<%=userInfo._id%>/<%=userInfo.userName%>" method="POST">
+                <input type="text" placeholder="productName" name="productName">
+                <input type="text" placeholder="photoURL" name="photoURL">
+                <input type="text" placeholder="materialsUsed" name="materialsUsed">
+                <input type="number" placeholder="cost" name="cost">
+                <button type="submit">Submit</button>
+            </form>
+            <%}%>
+
+        </div>
+    </body>
+</html>
