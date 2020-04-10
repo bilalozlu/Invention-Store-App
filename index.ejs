@@ -66,7 +66,7 @@
         background-color: rgba(50, 200, 250, 0.25);
     }
     #inventRow {
-        padding: 5
+        padding: 5;
     }
     #my {
         color: rgb(50, 200, 250);
@@ -161,15 +161,15 @@
                     <form action="/inventions/exhibit/<%=userInfo._id%>/<%=userInfo.userName%>" method="POST">
                         <h3> Exhibit new invention </h3>
                         <div id='inventRow'>
-                            <input type="text" placeholder="Enter product name" name="productName" required>
-                            <input type="text" placeholder="Enter photoURL" name="photoURL" required>
-                            <input type="text" placeholder="Enter materials used" name="materialsUsed" required>
-                            <input type="number" placeholder="Enter cost" name="cost" required>
+                            <input type="text" placeholder="Enter product name" name="productName" style="margin-right: 10" required>
+                            <input type="text" placeholder="Enter photoURL" name="photoURL" style="margin-right: 5" required>
+                            <input type="text" placeholder="Enter materials used" name="materialsUsed" style="margin-left: 5" required>
+                            <input type="number" placeholder="Enter cost" name="cost" style="margin-left: 10" required>
                         </div>
                         <div id='inventRow'>
-                            <input type="text" placeholder="Optional Feature1" name="of1">
-                            <input type="text" placeholder="Description1" name="od1">
-                            <input type="text" placeholder="Optional Feature2" name="of2">
+                            <input type="text" placeholder="Optional Feature1" name="of1"> :
+                            <input type="text" placeholder="Description1" name="od1" style="margin-right: 5">
+                            <input type="text" placeholder="Optional Feature2" name="of2" style="margin-left: 5"> :
                             <input type="text" placeholder="Description2" name="od2">
                         </div>
                         <div id='inventRow'>
@@ -205,7 +205,7 @@
                             oldRate = userInventions[i].rates[j].rate;%>
                     <%}}%>
                     <div class="grid-item2">
-                        <img src="<%= userInventions[i].photoURL %>" width="150" height="150">
+                        <img src="<%= userInventions[i].photoURL %>" style= "max-width:150; max-height:150;">
                         <div>
                             <p> Name: <%= userInventions[i].productName %></p>
                             <p> Rating: <%= (userInventions[i].sumOfRates / userInventions[i].numberOfRates).toFixed(2) %></p>
@@ -230,7 +230,7 @@
                     <table id = 'userList2'>
                         <tr>
                             <td id='tdName2'>
-                                <p> Name: </p>
+                                <p> Name </p>
                             </td>
                             <td id='tdOp2'>
                                 <p><%= theInvention.productName %></p>
@@ -238,7 +238,7 @@
                         </tr>
                         <tr>
                             <td id='tdName2'>
-                                <p> Rating: </p>
+                                <p> Rating </p>
                             </td>
                             <td id='tdOp2'>
                                 <p><%= (theInvention.sumOfRates / theInvention.numberOfRates).toFixed(2) %></p>
@@ -246,7 +246,7 @@
                         </tr>
                         <tr>
                             <td id='tdName2'>
-                                <p> Inventor's Name: </p>
+                                <p> Inventor's Name </p>
                             </td>
                             <td id='tdOp2'>
                                 <p><%= theInvention.user_name %></p>
@@ -254,7 +254,7 @@
                         </tr>
                         <tr>
                             <td id='tdName2'>
-                                <p> Cost: </p>
+                                <p> Cost </p>
                             </td>
                             <td id='tdOp2'>
                                 <p><%= theInvention.cost %></p>
@@ -262,7 +262,7 @@
                         </tr>
                         <tr>
                             <td id='tdName2'>
-                                <p> Materials: </p>
+                                <p> Materials </p>
                             </td>
                             <td id='tdOp2'>
                                 <p><%= theInvention.materialsUsed %></p>
