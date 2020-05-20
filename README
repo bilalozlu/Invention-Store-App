@@ -1,9 +1,12 @@
 Application url: https://bilals-invention-store.herokuapp.com
 
-*I used NodeJS for back-end (handling fetch and building APIs)
+*This application is a Database as a service application that includes users and their inventions.
+Since it is a sample project, no password authentication required.
+
+*I used NoSQL & MongoDB to handle data and NodeJS for back-end (handling fetch and building APIs)
 and Embedded JavaScript for front-end side (rendering GUI with HTML/Javascript).
 
 *Since I did not upload node_modules, you need to install them
 by `npm install` command in order to run application in your computer.
 
-Bilal Özlü - 1942614
+Bilal Özlü
