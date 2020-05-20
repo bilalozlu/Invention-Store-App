@@ -1,0 +1,9 @@
+Application url: https://bilals-invention-store.herokuapp.com
+
+*I used NodeJS for back-end (handling fetch and building APIs)
+and Embedded JavaScript for front-end side (rendering GUI with HTML/Javascript).
+
+*Since I did not upload node_modules, you need to install them
+by `npm install` command in order to run application in your computer.
+
+Bilal Özlü - 1942614
