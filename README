@@ -2,7 +2,7 @@ Application url: https://bilals-invention-store.herokuapp.com
 
 *Since it is a trial project, no password authentication required.
 
-*I used NoSQL & MongoDB to handle data and NodeJS for back-end (handling fetch and building APIs)
+*I used NoSQL & MongoDB to handle data, NodeJS for back-end (handling fetch and building APIs)
 and Embedded JavaScript for front-end side (rendering GUI with HTML/Javascript).
 
 *Since I did not upload node_modules, you need to install them
