@@ -1,7 +1,6 @@
 Application url: https://bilals-invention-store.herokuapp.com
 
-*This application is a database as a service application that includes users and their inventions.
-Since it is a trial project, no password authentication required.
+*Since it is a trial project, no password authentication required.
 
 *I used NoSQL & MongoDB to handle data and NodeJS for back-end (handling fetch and building APIs)
 and Embedded JavaScript for front-end side (rendering GUI with HTML/Javascript).
