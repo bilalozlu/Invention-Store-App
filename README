@@ -1,8 +1,6 @@
-*Application is deployed on : https://invention-store.bilalozlu.com
-
-*Since it is a trial project, no password authentication required.
-
 *I used NoSQL & MongoDB to handle data, NodeJS for back-end (handling fetch and building APIs)
 and Embedded JavaScript for front-end side (rendering GUI with HTML/Javascript).
+
+*Since it is a trial project, no password authentication required.
 
 Bilal Özlü
